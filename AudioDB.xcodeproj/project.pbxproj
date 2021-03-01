@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		53A4BA0125ED35A600678CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4BA0025ED35A600678CB0 /* AppDelegate.swift */; };
 		53A4BA0325ED35A600678CB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4BA0225ED35A600678CB0 /* SceneDelegate.swift */; };
-		53A4BA0525ED35A600678CB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4BA0425ED35A600678CB0 /* ViewController.swift */; };
 		53A4BA0825ED35A600678CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A4BA0625ED35A600678CB0 /* Main.storyboard */; };
 		53A4BA0A25ED35A800678CB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53A4BA0925ED35A800678CB0 /* Assets.xcassets */; };
 		53A4BA0D25ED35A800678CB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A4BA0B25ED35A800678CB0 /* LaunchScreen.storyboard */; };
+		53A4BA1825ED401D00678CB0 /* TrackListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4BA1725ED401D00678CB0 /* TrackListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		53A4B9FD25ED35A600678CB0 /* AudioDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A4BA0025ED35A600678CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53A4BA0225ED35A600678CB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53A4BA0425ED35A600678CB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		53A4BA0725ED35A600678CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53A4BA0925ED35A800678CB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53A4BA0C25ED35A800678CB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53A4BA0E25ED35A800678CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53A4BA1725ED401D00678CB0 /* TrackListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			children = (
 				53A4BA0025ED35A600678CB0 /* AppDelegate.swift */,
 				53A4BA0225ED35A600678CB0 /* SceneDelegate.swift */,
-				53A4BA0425ED35A600678CB0 /* ViewController.swift */,
 				53A4BA0625ED35A600678CB0 /* Main.storyboard */,
+				53A4BA1725ED401D00678CB0 /* TrackListViewController.swift */,
 				53A4BA0925ED35A800678CB0 /* Assets.xcassets */,
 				53A4BA0B25ED35A800678CB0 /* LaunchScreen.storyboard */,
 				53A4BA0E25ED35A800678CB0 /* Info.plist */,
@@ -137,9 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53A4BA0525ED35A600678CB0 /* ViewController.swift in Sources */,
 				53A4BA0125ED35A600678CB0 /* AppDelegate.swift in Sources */,
 				53A4BA0325ED35A600678CB0 /* SceneDelegate.swift in Sources */,
+				53A4BA1825ED401D00678CB0 /* TrackListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = NikitaZharinov.AudioDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +315,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = NikitaZharinov.AudioDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
