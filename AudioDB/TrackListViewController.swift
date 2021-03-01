@@ -9,37 +9,33 @@ import UIKit
 
 class TrackListViewController: UITableViewController {
 
+    // Надо решить где и как должен быть расположен activityIndicator
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        fetchListTracks()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "trackName", for: indexPath)
 
-        // Configure the cell...
+//         Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,4 +82,59 @@ class TrackListViewController: UITableViewController {
     }
     */
 
+    // MARK: - Private Methods
+    private func successAlert() {
+        let alert = UIAlertController(title: "Success",
+                                      message: "You can see the results in the Debug aria",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    private func failedAlert() {
+        let alert = UIAlertController(title: "Failed",
+                                      message: "You can see error in the Debug aria",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    // MARK: - Get data
+    
+    private func fetchListTracks() {
+        let headers = [
+            "x-rapidapi-key": "ba46bd7df0msh469bac161b46366p169216jsn28b13e628019",
+            "x-rapidapi-host": "theaudiodb.p.rapidapi.com"
+        ]
+
+        let request = NSMutableURLRequest(
+            url: NSURL(string: "https://theaudiodb.p.rapidapi.com/mostloved.php?format=track")! as URL,
+            cachePolicy: .useProtocolCachePolicy,
+            timeoutInterval: 10.0
+        )
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+            if let error = error {
+                print("Error!!!", error)
+                return
+            }
+            
+            if let response = response {
+                print("Response!!!", response)
+            }
+            
+            if let data = data {
+                DispatchQueue.main.async {
+                    print("Data")
+                    //                self.activityIndicator.stopAnimating()
+                }
+            }
+        }.resume()
+    }
 }
