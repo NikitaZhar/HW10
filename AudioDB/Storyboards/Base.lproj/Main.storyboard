@@ -10,7 +10,7 @@
         <!--Top 50 Tracks of Alltime-->
         <scene sceneID="ywB-r3-wJK">
             <objects>
-                <tableViewController id="uFd-FS-x6x" customClass="TrackListViewController" customModule="AudioDB" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="uFd-FS-x6x" customClass="TrackListViewController" customModule="AudioDB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gHF-lD-pAB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kh-YB-8Gb">
                                                             <rect key="frame" x="0.0" y="0.0" width="218" height="30"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -85,7 +85,8 @@
         <!--Navigation Controller-->
         <scene sceneID="QIe-je-Qnl">
             <objects>
-                <navigationController id="OQW-ru-XF1" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="OQW-ru-XF1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cKl-1k-aH7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gyr-E8-Pd4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

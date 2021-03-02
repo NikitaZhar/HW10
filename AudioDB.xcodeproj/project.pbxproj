@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		533473A225EE6B3100B88456 /* ConfigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533473A125EE6B3100B88456 /* ConfigureCell.swift */; };
+		533473B025EE95D000B88456 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533473AF25EE95D000B88456 /* NetworkManager.swift */; };
 		53A4BA0125ED35A600678CB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4BA0025ED35A600678CB0 /* AppDelegate.swift */; };
 		53A4BA0325ED35A600678CB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A4BA0225ED35A600678CB0 /* SceneDelegate.swift */; };
 		53A4BA0825ED35A600678CB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53A4BA0625ED35A600678CB0 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		533473A125EE6B3100B88456 /* ConfigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureCell.swift; sourceTree = "<group>"; };
+		533473AF25EE95D000B88456 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		53A4B9FD25ED35A600678CB0 /* AudioDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A4BA0025ED35A600678CB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53A4BA0225ED35A600678CB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		533473B325EEB19800B88456 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				53A4BA0625ED35A600678CB0 /* Main.storyboard */,
+				53A4BA0B25ED35A800678CB0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		53A4B9F425ED35A600678CB0 = {
 			isa = PBXGroup;
 			children = (
@@ -62,12 +73,12 @@
 			children = (
 				53A4BA0025ED35A600678CB0 /* AppDelegate.swift */,
 				53A4BA0225ED35A600678CB0 /* SceneDelegate.swift */,
-				53A4BA0625ED35A600678CB0 /* Main.storyboard */,
+				533473B325EEB19800B88456 /* Storyboards */,
 				53A4BA1B25ED81F600678CB0 /* LovedTrack.swift */,
 				53A4BA1725ED401D00678CB0 /* TrackListViewController.swift */,
+				533473AF25EE95D000B88456 /* NetworkManager.swift */,
 				533473A125EE6B3100B88456 /* ConfigureCell.swift */,
 				53A4BA0925ED35A800678CB0 /* Assets.xcassets */,
-				53A4BA0B25ED35A800678CB0 /* LaunchScreen.storyboard */,
 				53A4BA0E25ED35A800678CB0 /* Info.plist */,
 			);
 			path = AudioDB;
@@ -145,6 +156,7 @@
 			files = (
 				533473A225EE6B3100B88456 /* ConfigureCell.swift in Sources */,
 				53A4BA0125ED35A600678CB0 /* AppDelegate.swift in Sources */,
+				533473B025EE95D000B88456 /* NetworkManager.swift in Sources */,
 				53A4BA0325ED35A600678CB0 /* SceneDelegate.swift in Sources */,
 				53A4BA1C25ED81F600678CB0 /* LovedTrack.swift in Sources */,
 				53A4BA1825ED401D00678CB0 /* TrackListViewController.swift in Sources */,
