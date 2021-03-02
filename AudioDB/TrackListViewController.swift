@@ -10,7 +10,7 @@ import UIKit
 class TrackListViewController: UITableViewController {
 
     // Надо решить где и как должен быть расположен activityIndicator
-    
+    var trackList: Loved = Loved(loved: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,20 +20,26 @@ class TrackListViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return trackList.loved.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "trackName", for: indexPath)
-
-//         Configure the cell...
-
+        let track = trackList.loved[indexPath.row]
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = track.strArtist
+        content.secondaryText = track.strTrack
+        
+        let stringURL = URL(string: track.strTrackThumb)!
+        let imageData = try? Data(contentsOf: stringURL)
+        DispatchQueue.main.async {
+            self.
+            content.image = UIImage(data: imageData!)
+        }
+        cell.contentConfiguration = content
+        
         return cell
     }
 
@@ -111,8 +117,12 @@ class TrackListViewController: UITableViewController {
             "x-rapidapi-host": "theaudiodb.p.rapidapi.com"
         ]
 
+        guard let requestURL = NSURL(
+                string: "https://theaudiodb.p.rapidapi.com/mostloved.php?format=track"
+        ) else { return }
+        
         let request = NSMutableURLRequest(
-            url: NSURL(string: "https://theaudiodb.p.rapidapi.com/mostloved.php?format=track")! as URL,
+            url: requestURL as URL,
             cachePolicy: .useProtocolCachePolicy,
             timeoutInterval: 10.0
         )
@@ -121,20 +131,61 @@ class TrackListViewController: UITableViewController {
 
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
             if let error = error {
-                print("Error!!!", error)
+                print("Error!!!", error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.failedAlert()
+                }
                 return
             }
-            
-            if let response = response {
-                print("Response!!!", response)
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                print("Data \(data)")
+                //                self.activityIndicator.stopAnimating()
             }
-            
-            if let data = data {
+            do {
+                self.trackList = try JSONDecoder().decode(Loved.self, from: data)
                 DispatchQueue.main.async {
-                    print("Data")
-                    //                self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
                 }
+            } catch let error as NSError  {
+                print("Error of decoding \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.failedAlert()
+                }
+
             }
         }.resume()
+        
+        
+        
+//        dataTask(with: URLRequest, completionHandler: (Data?, URLResponse?, Error?) throws -> Void)
+        
+//        URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
+//            if let error = error {
+//                print("Error!!!", error)
+//                return
+//            }
+//
+//            if let response = response {
+//                print("Response!!!", response)
+//            }
+//
+//            guard let data = data else { return }
+//            DispatchQueue.main.async {
+//                print("Data")
+//
+//                //                self.activityIndicator.stopAnimating()
+//            }
+//
+//
+//
+//            do {
+//                let trackList = try JSONDecoder().decode(ListLovedTracks.self, from: data)
+//            } catch error {
+//                print(error)
+//            }
+//
+//        }.resume()
+        
     }
 }
