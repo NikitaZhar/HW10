@@ -8,38 +8,26 @@
 import UIKit
 
 class TrackListViewController: UITableViewController {
-
-    // Надо решить где и как должен быть расположен activityIndicator
+        
     var trackList: Loved = Loved(loved: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = 66
+ //        activityIndicator.hidesWhenStopped = true
         fetchListTracks()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trackList.loved.count
+        return trackList.loved?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trackName", for: indexPath)
-        let track = trackList.loved[indexPath.row]
-        var content = cell.defaultContentConfiguration()
-        
-        content.text = track.strArtist
-        content.secondaryText = track.strTrack
-        
-        let stringURL = URL(string: track.strTrackThumb)!
-        let imageData = try? Data(contentsOf: stringURL)
-        DispatchQueue.main.async {
-            self.
-            content.image = UIImage(data: imageData!)
-        }
-        cell.contentConfiguration = content
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! ConfigureCell
+        let track = trackList.loved![indexPath.row]
+        cell.configure(with: track)
         return cell
     }
 
@@ -152,7 +140,6 @@ class TrackListViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.failedAlert()
                 }
-
             }
         }.resume()
         

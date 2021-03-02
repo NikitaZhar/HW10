@@ -9,20 +9,24 @@ import UIKit
 
 class ConfigureCell: UITableViewCell {
 
-    func configure (with track: LovedTrack) {
-        var content = cell.defaultContentConfiguration()
-        content.text = track.strArtist
-        content.secondaryText = track.strTrack
+    @IBOutlet var trackTambImage: UIImageView!
+    @IBOutlet var trackLabel: UILabel!
+    @IBOutlet var artistLabel: UILabel!
+    @IBOutlet var albomLabel: UILabel!
+    
+    func configure(with track: LovedTrack) {
+        trackLabel.text = track.strTrack
+        artistLabel.text = track.strArtist
+//        albomLabel.text = track.strAlbum
+        
+        DispatchQueue.global().async {
+            guard let stringURL = track.strTrackThumb else { return }
+            guard let imageURL = URL(string: stringURL) else { return }
+            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+            
+            DispatchQueue.main.async {
+                self.trackTambImage.image = UIImage(data: imageData)
+            }
+        }
     }
-    
-    var content = cell.defaultContentConfiguration()
-    content.text = track.strArtist
-    content.secondaryText = track.strTrack
-    
-    let imageData = try? Data(contentsOf: URL(string: track.strTrackThumb)!)
-    DispatchQueue.main.async {
-        self.content.image = UIImage(data: imageData!)
-    }
-    
-    
 }

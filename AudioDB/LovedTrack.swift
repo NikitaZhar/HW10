@@ -6,12 +6,12 @@
 //
 
 struct LovedTrack: Decodable {
-    let strTrack: String
-    let strArtist: String
-    let strAlbum: String
-    let strTrackThumb: String
+    let strTrack: String?
+    let strArtist: String?
+    let strAlbum: String?
+    let strTrackThumb: String?
 }
 
 struct Loved: Decodable {
-    let loved: [LovedTrack]
+    let loved: [LovedTrack]?
 }
